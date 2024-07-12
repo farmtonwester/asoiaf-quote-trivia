@@ -1,0 +1,1 @@
+quoteCard = document.getElementById("quote-card");
