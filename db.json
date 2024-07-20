@@ -1,0 +1,40 @@
+{
+    "quotes": [
+        {
+            "id": 1,
+            "quote": "“When you play the game of thrones, you win or you die. There is no middle ground",
+            "character": "Cersei Lannister",
+            "source": "AGoT, Eddard XII"
+
+        },
+
+        {
+            "id": 2,
+            "quote": "When the snows fall and the white winds blow, the lone wolf dies but the pack survives.",
+            "character": "Eddard Stark",
+            "source": "AGoT, Arya II"
+
+        },
+        {
+            "id": 3,
+            "quote": "Rhaegar fought valiantly, Rhaegar fought nobly, Rhaegar fought honorably. And Rhaegar died.",
+            "character": "Jorah Mormont",
+            "source": "ASoS, Daenerys II"
+
+        },
+        {
+            "id": 4,
+            "quote": "The things I do for love.",
+            "character": "Jaime Lannister",
+            "source": "AGoT, Bran II"
+
+        },
+        {
+            "id": 5,
+            "quote": "You know nothing, Jon Snow.",
+            "character": "Ygritte",
+            "source": "ASoS, Jon II"
+
+        }
+    ]
+}
