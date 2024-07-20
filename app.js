@@ -11,11 +11,20 @@ function getQuote() {
     .then(resp => resp.json()
     .then(data => {
         const quoteObj = data[randomNumber];
-        const text = quoteCard.createElement("p");
-        text.textContent = quoteObj.quote
+        const text = quoteCard.appendChild(document.createElement("p"));
+        text.textContent = `"${quoteObj.quote}"`;
     }))
 }
+
+function verifyAnswer(){
+    
+}
+
+
+
 
 document.addEventListener("DOMContentLoaded", 
     getQuote()
 );
+
+
