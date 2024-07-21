@@ -11,14 +11,20 @@
     </head>
     <body>
         <h1>A Quote of Ice and Fire</h1>
+        <h2>Who Said It?</h2>
+        <h5><em>Test your knowledge of the World of Westeros and see if you know which character said these memorable quotes!</em></h5>
 
         <div id="quote-card">
-            <h3>Who Said It?</h3>
+            
         </div>
         <form>
-            <input type="text" maxlength="28">
+            <input type="text" id="user-input"maxlength="28">
             <button type="submit">Submit</button>
         </form>
+        <div id="feedback">
+            <p id="right-or-wrong"></p>
+        </div>
+        <p id="disclaimer">Note: where applicable, house names are required. Spelling is key!</p>
         <script src="app.js"></script>
     </body>
 </html>

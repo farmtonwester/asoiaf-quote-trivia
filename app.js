@@ -1,23 +1,32 @@
 // Maximum number to be generated, equal to number of quoteObjects available in db.json
 const maxQuotes = 4; 
 const quoteCard = document.getElementById("quote-card");
+let currentQuoteObj = {};
+const feedback = document.getElementById("feedback");
+
 
 
 // Use Math object to get random int
 // fetch quoteObj[randomNumber]
 function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
-    const newQuote = fetch("http://localhost:3000/quotes")
+    fetch("http://localhost:3000/quotes")
     .then(resp => resp.json()
     .then(data => {
-        const quoteObj = data[randomNumber];
-        const text = quoteCard.appendChild(document.createElement("p"));
-        text.textContent = `"${quoteObj.quote}"`;
-    }))
+
+        currentQuoteObj = data[randomNumber];
+        quoteCard.textContent = `"${currentQuoteObj.quote}"`;
+    }));
 }
 
 function verifyAnswer(){
-    
+    const userInput = document.querySelector("input").value;
+    if (currentQuoteObj.character === userInput) {
+        feedback.textContent = "Correct!";
+    }
+    else {
+        feedback.textContent = "Incorrect, try again"
+    }
 }
 
 
