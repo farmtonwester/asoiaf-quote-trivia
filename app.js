@@ -3,6 +3,13 @@ const maxQuotes = 4;
 const quoteCard = document.getElementById("quote-card");
 let currentQuoteObj = {};
 const feedback = document.getElementById("feedback");
+const form = document.getElementById("user-input");
+
+form.addEventListener("submit", (event) => {
+    event.preventDefault();
+    verifyAnswer();
+})
+
 
 
 
@@ -19,7 +26,7 @@ function getQuote() {
     }));
 }
 
-function verifyAnswer(){
+function verifyAnswer() {
     const userInput = document.querySelector("input").value;
     if (currentQuoteObj.character === userInput) {
         feedback.textContent = "Correct!";
