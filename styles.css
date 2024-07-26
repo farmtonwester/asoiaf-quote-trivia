@@ -1,9 +1,27 @@
-.quote-card {
-    background-color: #F0E4C0;
+body {
+    background-color: #FFE6A7;
+}
+
+#header {
+    background-color: #6F1D1B;
+    color: whitesmoke;
+    margin: auto;
+    text-align: center;
+    font-style: oblique;
+}
+
+#quote-card {
+
     text-align: center;
     border-color: darkslategrey;
+    padding-bottom: 20px;
+}
+
+form {
+    text-align: center;
 }
 
 #disclaimer {
     font-size: 12px;
 }
+

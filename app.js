@@ -8,7 +8,7 @@ const form = document.getElementById("user-input");
 // When form is submitted, check if the user's answer is correct
 form.addEventListener("submit", (event) => {
     event.preventDefault();
-    verifyAnswer();
+   //verifyAnswer();
 })
 
 
@@ -44,7 +44,7 @@ function getCharDetails() {
 
 
 document.addEventListener("DOMContentLoaded", 
-    getQuote()
+    getQuote
 );
 
-export {getQuote, verifyAnswer};
+//export {getQuote, verifyAnswer};
