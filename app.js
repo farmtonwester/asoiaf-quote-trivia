@@ -1,10 +1,11 @@
 // Maximum number to be generated, equal to number of quoteObjects available in db.json
-const maxQuotes = 4; 
+const maxQuotes = 5; 
 const quoteCard = document.getElementById("quote-card");
 let currentQuoteObj = {};
 const feedback = document.getElementById("feedback");
 const form = document.getElementById("user-input");
 
+// When form is submitted, check if the user's answer is correct
 form.addEventListener("submit", (event) => {
     event.preventDefault();
     verifyAnswer();
@@ -27,7 +28,7 @@ function getQuote() {
 }
 
 function verifyAnswer() {
-    const userInput = document.querySelector("input").value;
+    const userInput = document.getElementById("user-input").value;
     if (currentQuoteObj.character === userInput) {
         feedback.textContent = "Correct!";
     }
@@ -36,6 +37,9 @@ function verifyAnswer() {
     }
 }
 
+function getCharDetails() {
+    // fetch(apioficeandfire/char/{currCharId})
+}
 
 
 
@@ -43,4 +47,4 @@ document.addEventListener("DOMContentLoaded",
     getQuote()
 );
 
-
+export {getQuote, verifyAnswer};
