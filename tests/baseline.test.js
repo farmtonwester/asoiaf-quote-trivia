@@ -3,7 +3,15 @@
 */
 import {getQuote, verifyAnswer} from "../app.js";
 
-// First Test
 test('getQuote returns an object', function() {
-    expect(getQuote().toBe('object'));
-})
+    const result = getQuote();
+    expect(result).toBeInstanceOf(Object);
+});
+
+test('getQuote returns a correctly structured quote object', () => {
+    const result = getQuote();
+    expect(result["quote"]).toBeInstanceOf(String)
+    expect(result["id"]).toBeInstanceOf()
+    expect(result["character"]).toBeInstanceOf()
+    expect(result["source"]).toBeInstance()
+});

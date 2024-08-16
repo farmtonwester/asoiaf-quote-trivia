@@ -1,3 +1,8 @@
+import fetch from "node-fetch";
+
+
+
+addEventListener("load", setUpListeners);
 // Maximum number to be generated, equal to number of quoteObjects available in db.json
 const maxQuotes = 5; 
 const quoteCard = document.getElementById("quote-card");
@@ -6,10 +11,13 @@ const feedback = document.getElementById("feedback");
 const form = document.getElementById("user-input");
 
 // When form is submitted, check if the user's answer is correct
-form.addEventListener("submit", (event) => {
-    event.preventDefault();
-   //verifyAnswer();
-})
+function setUpListeners() {
+    form.addEventListener("submit", (event) => {
+        event.preventDefault();
+       //verifyAnswer();
+
+    })
+};
 
 
 
@@ -18,13 +26,14 @@ form.addEventListener("submit", (event) => {
 // fetch quoteObj[randomNumber]
 function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
-    fetch("http://localhost:3000/quotes")
-    .then(resp => resp.json()
-    .then(data => {
-
-        currentQuoteObj = data[randomNumber];
-        quoteCard.textContent = `"${currentQuoteObj.quote}"`;
-    }));
+    const quoteObj = fetch("http://localhost:3000/quotes")
+        .then(resp => resp.json()
+        .then(data => {
+            //quoteCard.textContent = `"${currentQuoteObj.quote}"`
+            return data[randomNumber];
+        }));
+        
+    return quoteObj;
 }
 
 function verifyAnswer() {
@@ -47,4 +56,4 @@ document.addEventListener("DOMContentLoaded",
     getQuote
 );
 
-//export {getQuote, verifyAnswer};
+export {getQuote, verifyAnswer};
