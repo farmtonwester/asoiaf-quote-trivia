@@ -24,9 +24,9 @@ function setUpListeners() {
 
 // Use Math object to get random int
 // fetch quoteObj[randomNumber]
-function getQuote() {
+async function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
-    const quoteObj = fetch("http://localhost:3000/quotes")
+    const quoteObj = await fetch("http://localhost:3000/quotes")
         .then(resp => resp.json()
         .then(data => {
             //quoteCard.textContent = `"${currentQuoteObj.quote}"`
