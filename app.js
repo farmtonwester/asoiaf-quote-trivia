@@ -29,7 +29,7 @@ async function getQuote() {
     const quoteObj = await fetch("http://localhost:3000/quotes")
         .then(resp => resp.json()
         .then(data => {
-            //quoteCard.textContent = `"${currentQuoteObj.quote}"`
+            quoteCard.textContent = `"${currentQuoteObj.quote}"`
             return data[randomNumber];
         }));
         
