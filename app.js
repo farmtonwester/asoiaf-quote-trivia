@@ -22,15 +22,14 @@ function setUpListeners() {
 
 async function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
-    const quoteObj = await fetch("http://localhost:3000/quotes")
+    const quoteObj = fetch("http://localhost:3000/quotes")
         .then(resp => resp.json()
         .then(data => {
-            currentQuoteObj = quoteObj[randomNumber]
+            currentQuoteObj = data[randomNumber]
             quoteCard.textContent = `"${currentQuoteObj.quote}"`
-            return data[randomNumber];
+            return currentQuoteObj;
         }));
-        
-    return currentQuoteObj;
+    return quoteObj;
 }
 
 function verifyAnswer() {
