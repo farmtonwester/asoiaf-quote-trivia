@@ -1,18 +1,14 @@
-/**
- * @jest-environment jsdom
-*/
 
 import {getQuote, verifyAnswer} from "../app.js";
 
-test('getQuote returns an object', () => {
-    let temp = getQuote(); 
-    expect(temp).toBeInstanceOf(Object);
+ test('getQuote returns an object', async () => {
+     await expect(await getQuote()).resolves.toBeInstanceOf(Object)
 });
 
-test('getQuote returns a correctly structured quote object', () => {
-    let temp = getQuote();
-    expect(temp["id"]).toBeInstanceOf(Number);
-    expect(temp["quote"]).toBeInstanceOf(String);
-    expect(temp["character"]).toBeInstanceOf(String);
-    expect(temp["source"]).toBeInstanceOf(String);
+test('getQuote returns a correctly structured quote object', async () => {
+    const result_1 = await getQuote();
+    expect(typeof result_1["quote"]).toBe("string");
+    expect(typeof result_1["character"]).toBe("string");
+    expect(typeof result_1["source"]).toBe("string");
+    expect(typeof result_1["id"]).toBe("string");
 });
