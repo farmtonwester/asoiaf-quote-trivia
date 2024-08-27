@@ -4,10 +4,6 @@
 
 import updateElement from "../utils.js"
 
-test('use jsdom in this test file', () => {
-    const element = document.createElement('div');
-    expect(element).not.toBeNull();
-  });
 
 describe("update element", () => {
     test('replaces innerText of target element', function() {
