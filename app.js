@@ -8,6 +8,8 @@ const quoteCard = document.getElementById("quote-card");
 const feedback = document.getElementById("feedback");
 const form = document.getElementById("user-input");
 
+const QUOTE_DB = "http://localhost:3000/quotes"
+
 let currentQuoteObj = {};
 
 
@@ -23,17 +25,27 @@ function setUpListeners() {
 
 // Use Math object to get random int
 
-function getQuote() {
+async function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
-    const quoteObj = fetch("http://localhost:3000/quotes")
-        .then(resp => resp.json()
-        .then(data => {
-            currentQuoteObj = data[randomNumber]
-            quoteCard.textContent = `"${currentQuoteObj.quote}"`
-            return currentQuoteObj;
-        }));
-    return quoteObj;
-}
+
+    try {
+        const response = await fetch(QUOTE_DB);
+        if (!response.ok) {
+            throw new Error(`Response status: ${response.status}`);
+        }
+        const json = await response.json();
+
+        currentQuoteObj = json[randomNumber]
+
+        return currentQuoteObj;
+        
+    } catch (error) {
+        console.error(error.message);
+    }
+    
+};
+
+
 
 function verifyAnswer() {
     const userInput = form.value;

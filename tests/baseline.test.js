@@ -10,7 +10,7 @@ test('getQuote returns an object', () => {
 });
 
 test('getQuote returns a correctly structured quote object', () => {
-    const temp = getQuote();
+    let temp = getQuote();
     expect(temp["id"]).toBeInstanceOf(Number);
     expect(temp["quote"]).toBeInstanceOf(String);
     expect(temp["character"]).toBeInstanceOf(String);
