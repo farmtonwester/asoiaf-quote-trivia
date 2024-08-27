@@ -13,6 +13,9 @@ let currentQuoteObj = {};
 
 function setUpListeners() {
   
+    document.addEventListener("DOMContentLoaded", 
+        getQuote
+    );
 };
 
 
@@ -20,7 +23,7 @@ function setUpListeners() {
 
 // Use Math object to get random int
 
-async function getQuote() {
+function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
     const quoteObj = fetch("http://localhost:3000/quotes")
         .then(resp => resp.json()
@@ -48,8 +51,5 @@ function getCharDetails() {
 
 
 
-document.addEventListener("DOMContentLoaded", 
-    getQuote
-);
 
 export {getQuote, verifyAnswer};
