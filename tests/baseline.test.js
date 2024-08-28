@@ -2,7 +2,7 @@
 import {getQuote, verifyAnswer} from "../app.js";
 
  test('getQuote returns an object', async () => {
-     await expect(await getQuote()).resolves.toBeInstanceOf(Object)
+     await expect( getQuote()).toBeInstanceOf(Object)
 });
 
 test('getQuote returns a correctly structured quote object', async () => {
