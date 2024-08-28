@@ -30,11 +30,7 @@ async function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
 
     const response = await fetch(QUOTE_DB);
-
-    if (!response.ok) {
-        throw new Error(`Response status: ${response.status}`);
-    }
-    const json = await response.json()[randomNumber];
+    const json = await response.json().randomNumber;
     currentQuoteObj = json;
     
     updateElement("quote-card", currentQuoteObj["quote"]);

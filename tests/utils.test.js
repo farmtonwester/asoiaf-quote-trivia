@@ -1,7 +1,3 @@
-/**
- * @jest-environment jsdom
- */
-
 import { getQuote } from "../app.js";
 import updateElement from "../utils.js"
 
