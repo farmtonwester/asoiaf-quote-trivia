@@ -17,7 +17,7 @@ let currentQuoteObj = {};
 function setUpListeners() {
   
     document.addEventListener("DOMContentLoaded", 
-        getQuote
+        fetchQuotes
     );
 };
 
@@ -26,18 +26,14 @@ function setUpListeners() {
 
 // Use Math object to get random int
 
-async function getQuote() {
+async function fetchQuotes() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
 
-    const response = await fetch(QUOTE_DB);
-    const json = await response.json().randomNumber;
-    currentQuoteObj = json;
-    
-    updateElement("quote-card", currentQuoteObj["quote"]);
-
-    return currentQuoteObj;
-
-
+    return await fetch(QUOTE_DB)
+    .then(resp => resp.json())
+    .then(data => {
+        updateElement("quote-card", data[randomNumber]["quote"]);
+    });
 };
 
 
@@ -59,4 +55,4 @@ function getCharDetails() {
 
 
 
-export {getQuote, verifyAnswer};
+export {fetchQuotes, verifyAnswer};

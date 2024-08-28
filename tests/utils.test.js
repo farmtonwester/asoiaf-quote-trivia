@@ -1,4 +1,4 @@
-import { getQuote } from "../app.js";
+import { fetchQuotes } from "../app.js";
 import updateElement from "../utils.js"
 
 
@@ -11,8 +11,8 @@ describe("updateElement", () => {
         expect(targetElement.innerHTML).toEqual("some text")
     });
     
-    // test('is called successfully when getQuote function is executed', async () => {
-    //     const temp = await getQuote();
+    // test('is called successfully when fetchQuotes function is executed', async () => {
+    //     const temp = await fetchQuotes();
     //     const quoteDiv = document.getElementById("quote-card");
 
     //     expect(quoteDiv.innerHTML).toEqual(temp["quote"]);
