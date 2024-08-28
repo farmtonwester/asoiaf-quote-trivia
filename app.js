@@ -1,4 +1,5 @@
 import fetch from "node-fetch";
+import updateElement from "./utils";
 addEventListener("load", setUpListeners);
 
 // Maximum number to be generated, equal to number of quoteObjects available in db.json
@@ -28,21 +29,19 @@ function setUpListeners() {
 async function getQuote() {
     const randomNumber = Math.floor(Math.random() * maxQuotes)
 
-    try {
-        const response = await fetch(QUOTE_DB);
-        if (!response.ok) {
-            throw new Error(`Response status: ${response.status}`);
-        }
-        const json = await response.json();
+    const response = await fetch(QUOTE_DB);
 
-        currentQuoteObj = json[randomNumber]
-
-        return currentQuoteObj;
-        
-    } catch (error) {
-        console.error(error.message);
+    if (!response.ok) {
+        throw new Error(`Response status: ${response.status}`);
     }
+    const json = await response.json()[randomNumber];
+    currentQuoteObj = json;
     
+    updateElement("quote-card", currentQuoteObj["quote"]);
+
+    return currentQuoteObj;
+
+
 };
 
 
